@@ -45,7 +45,7 @@ const UserTable: React.FC = () => {
           user.hobbies.join(", "),
           user.employedFrom,
           user.employedTo,
-          user.comments
+          user.comments,
         ];
 
         dataTable.row.add(rowData);
@@ -61,8 +61,12 @@ const UserTable: React.FC = () => {
       const data = await response.json();
 
       const formattedUsers: User[] = data.map((user: User) => {
-        const formattedEmployedFrom = new Date(user.employedFrom).toLocaleDateString();
-        const formattedEmployedTo = new Date(user.employedTo).toLocaleDateString();
+        const formattedEmployedFrom = new Date(
+          user.employedFrom
+        ).toLocaleDateString();
+        const formattedEmployedTo = new Date(
+          user.employedTo
+        ).toLocaleDateString();
 
         return {
           ...user,

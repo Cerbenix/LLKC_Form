@@ -10,7 +10,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     onLogout();
-    window.location.href = '/'
+    window.location.href = "/";
   };
 
   return (
@@ -21,7 +21,14 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
         {isAuthenticated && <Link href="/user/table">User Table</Link>}
         {!isAuthenticated && <Link href="/user/register">Register</Link>}
         {!isAuthenticated && <Link href="/user/login">Login</Link>}
-        {isAuthenticated && <button className='hover:text-red-500 font-bold mx-5' onClick={handleLogout}>Logout</button>}
+        {isAuthenticated && (
+          <button
+            className="hover:text-red-500 font-bold mx-5"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        )}
       </nav>
     </header>
   );

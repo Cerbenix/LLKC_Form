@@ -15,7 +15,7 @@ class User
         string $surname,
         string $email,
         string $password,
-        int $id = null
+        int    $id = null
     )
     {
         $this->name = $name;
@@ -44,7 +44,6 @@ class User
     {
         return $this->name;
     }
-
 
     public function getSurname(): string
     {

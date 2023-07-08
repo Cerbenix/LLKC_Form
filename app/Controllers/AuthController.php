@@ -21,7 +21,7 @@ class AuthController
     {
         $data = json_decode(file_get_contents('php://input'), true);
 
-        try{
+        try {
             $user = $this->loginService->execute($data['email'], $data['password']);
             $payload = array(
                 "user_id" => $user->getId(),
@@ -31,7 +31,7 @@ class AuthController
 
             return new ApiResponse(['token' => $token]);
 
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             return new ApiResponse([$e->getMessage()], 401);
         }
     }

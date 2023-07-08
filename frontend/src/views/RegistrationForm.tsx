@@ -90,9 +90,9 @@ const RegistrationForm: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     const isValid = validateForm();
-  
+
     if (isValid) {
       try {
         const response = await fetch("/api/user", {
@@ -102,7 +102,7 @@ const RegistrationForm: React.FC = () => {
           },
           body: JSON.stringify(formData),
         });
-  
+
         if (response.ok) {
           const { token } = await response.json();
 
@@ -132,11 +132,9 @@ const RegistrationForm: React.FC = () => {
 
   useEffect(() => {
     fetchRegisteredEmails();
-  }, []); 
-  
+  }, []);
 
   const validateForm = () => {
-    
     const errors: FormErrors = {};
 
     if (formData.name.trim() === "") {
@@ -152,7 +150,7 @@ const RegistrationForm: React.FC = () => {
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
       errors.email = "Email is invalid";
     } else if (registeredEmails.includes(formData.email)) {
-      errors.email = 'Email already in use'
+      errors.email = "Email already in use";
     }
 
     if (formData.password.trim() === "") {

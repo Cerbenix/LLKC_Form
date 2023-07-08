@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface LabelProps {
   htmlFor?: string;
@@ -6,7 +6,11 @@ interface LabelProps {
 }
 
 const Label: React.FC<LabelProps> = ({ htmlFor, children }) => {
-  return <label htmlFor={htmlFor} className='text-lg'>{children}</label>;
+  return (
+    <label htmlFor={htmlFor} className="text-lg">
+      {children}
+    </label>
+  );
 };
 
 export default Label;

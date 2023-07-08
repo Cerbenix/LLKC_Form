@@ -17,10 +17,10 @@ class UserController
     private JWT $JWT;
 
     public function __construct(
-        IndexUserService $indexUserService,
-        StoreUserService $storeUserService,
+        IndexUserService       $indexUserService,
+        StoreUserService       $storeUserService,
         RegistryFormValidation $formValidation,
-        JWT $JWT
+        JWT                    $JWT
     )
     {
         $this->indexUserService = $indexUserService;

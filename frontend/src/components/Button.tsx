@@ -1,8 +1,8 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent } from "react";
 
 interface ButtonProps {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
