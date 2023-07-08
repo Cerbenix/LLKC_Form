@@ -9,7 +9,7 @@ if ($response instanceof \App\Core\ApiResponse) {
     echo($response->getData());
 } else {
     header('Content-Type: text/html');
-    require_once('dist/index.html');
+    require_once('index.html');
 }
 
 

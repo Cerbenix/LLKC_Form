@@ -91,7 +91,6 @@ const RegistrationForm: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    console.log(formData)
     const isValid = validateForm();
   
     if (isValid) {
@@ -121,7 +120,7 @@ const RegistrationForm: React.FC = () => {
       const response = await fetch("/api/user");
       if (response.ok) {
         const data = await response.json();
-        const registeredEmails: string[] = data.users.map((user: any) => user.email);
+        const registeredEmails: string[] = data.map((user: any) => user.email);
         setRegisteredEmails(registeredEmails);
       } else {
         console.error("Error occurred while fetching registered emails");
@@ -132,7 +131,6 @@ const RegistrationForm: React.FC = () => {
   };
 
   useEffect(() => {
-
     fetchRegisteredEmails();
   }, []); 
   
@@ -206,7 +204,7 @@ const RegistrationForm: React.FC = () => {
     <div className="flex flex-col items-center my-10">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col justify-center items-center w-1/3 min-w-[300px] p-10 bg-gray-200 border-2 border-gray-500"
+        className="flex flex-col justify-center items-center w-1/3 min-w-[300px] p-10 bg-slate-200 border-2 border-gray-500 rounded-3xl"
       >
         <InputFieldContainer>
           <Label htmlFor="name">Name*</Label>
@@ -410,7 +408,7 @@ const RegistrationForm: React.FC = () => {
               endDate={formData.employmentDuration.to}
               dateFormat="dd/MM/yyyy"
               placeholderText="From"
-              className="border-gray-400 border-2 px-5 py-2 my-2"
+              className="border-gray-400 border-2 px-2 py-1 my-2 rounded-lg"
             />
             <DatePicker
               selected={formData.employmentDuration.to}
@@ -420,7 +418,7 @@ const RegistrationForm: React.FC = () => {
               endDate={formData.employmentDuration.to}
               dateFormat="dd/MM/yyyy"
               placeholderText="To"
-              className="border-gray-400 border-2 px-5 py-2 my-2"
+              className="border-gray-400 border-2 px-2 py-1 my-2 rounded-lg"
             />
           </div>
           {formErrors.employmentDuration && (

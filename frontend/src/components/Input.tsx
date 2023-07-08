@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({ type, name, value, id, onChange }) => {
       value={value}
       id={id}
       onChange={onChange}
-      className="border-gray-400 border-2 px-2 py-1"
+      className="border-gray-400 border-2 px-2 py-1 rounded-xl"
     />
   );
 };

@@ -81,7 +81,7 @@ const LoginForm: React.FC = () => {
     <div className="flex flex-col items-center my-10">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col justify-center items-center w-1/3 min-w-[300px] p-10 bg-gray-200 border-2 border-gray-500"
+        className="flex flex-col justify-center items-center w-1/3 min-w-[300px] p-10 bg-slate-200 border-2 border-gray-500 rounded-3xl"
       >
         <InputFieldContainer>
           <Label htmlFor="email">Email:</Label>

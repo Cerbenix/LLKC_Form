@@ -8,7 +8,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
   return (
     <button
-      className={`border-gray-400 border-2 px-5 py-2 bg-gray-300 hover:text-cyan-500 mt-3`}
+      className={`border-gray-400 border-2 px-7 py-4 bg-slate-400 hover:bg-slate-500 hover:text-white mt-3 rounded-lg`}
       onClick={onClick}
     >
       {children}
