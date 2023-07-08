@@ -55,7 +55,9 @@ Navigate to the frontend folder.
 
 ## Take a look
 
-### Registration Form
+### Registration form
 ![image](https://github.com/Cerbenix/LLLKC-Form/assets/124684938/6f0b5d87-cda7-4b7d-9427-63eccdd14520)
 
-###
+### User table view
+![image](https://github.com/Cerbenix/LLLKC-Form/assets/124684938/5ed34f94-f154-4ca9-a47f-582040eda9ff)
+
