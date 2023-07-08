@@ -46,6 +46,11 @@ const LoginForm: React.FC = () => {
 
           localStorage.setItem("token", token);
           window.location.href = "/user/table";
+        } else {
+            setFormErrors((prevErrors) => ({
+              ...prevErrors,
+              password: "Credentials do not match our records",
+            }));
         }
       } catch (error) {
         console.error(error);

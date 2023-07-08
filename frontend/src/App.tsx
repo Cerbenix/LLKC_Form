@@ -13,17 +13,13 @@ import "./index.css";
 import UserTable from "./views/UserTable";
 
 const App: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(
+  const [isAuthenticated] = useState(
     !!localStorage.getItem("token")
   );
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-  };
-
   return (
     <Router>
-      <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+      <Header isAuthenticated={isAuthenticated} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user/register" element={<RegistrationForm />} />

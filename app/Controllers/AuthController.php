@@ -23,6 +23,10 @@ class AuthController
 
         try {
             $user = $this->loginService->execute($data['email'], $data['password']);
+            if (!$user) {
+                return new ApiResponse(['message' => 'Invalid credentials'], 401);
+            }
+
             $payload = array(
                 "user_id" => $user->getId(),
                 "exp" => time() + 3600,

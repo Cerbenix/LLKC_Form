@@ -3,13 +3,12 @@ import Link from "./Link";
 
 interface HeaderProps {
   isAuthenticated: boolean;
-  onLogout: () => void;
+  
 }
 
-const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
+const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
-    onLogout();
     window.location.href = "/";
   };
 
