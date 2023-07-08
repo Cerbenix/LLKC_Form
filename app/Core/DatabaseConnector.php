@@ -9,10 +9,22 @@ use Doctrine\DBAL\Query\QueryBuilder;
 
 class DatabaseConnector
 {
+    private array $connectionParams;
+    public function __construct()
+    {
+        $this->connectionParams = [
+            'dbname' => $_ENV['PDO_DB_NAME'],
+            'user' => $_ENV['PDO_USER'],
+            'password' => $_ENV['PDO_PASSWORD'],
+            'host' => $_ENV['PDO_HOST'],
+            'driver' => 'pdo_mysql',
+        ];
+    }
+
     public function getConnection(): ?Connection
     {
         try {
-            return DriverManager::getConnection(self::getConnectionParams());
+            return DriverManager::getConnection($this->connectionParams);
         } catch (Exception $exception) {
             echo $exception->getMessage();
             return null;
@@ -21,17 +33,6 @@ class DatabaseConnector
 
     public function getQueryBuilder(): QueryBuilder
     {
-        return self::getConnection()->createQueryBuilder();
-    }
-
-    private function getConnectionParams(): array
-    {
-        return [
-            'dbname' => $_ENV['PDO_DB_NAME'],
-            'user' => $_ENV['PDO_USER'],
-            'password' => $_ENV['PDO_PASSWORD'],
-            'host' => $_ENV['PDO_HOST'],
-            'driver' => 'pdo_mysql',
-        ];
+        return $this->getConnection()->createQueryBuilder();
     }
 }

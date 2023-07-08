@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Services\User;
-
-use stdClass;
+namespace App\Services\User\Store;
 
 class StoreUserRequest
 {
@@ -17,7 +15,7 @@ class StoreUserRequest
     private string $comments;
     private string $smoking;
     private array $hobbies;
-    private stdClass $employmentDuration;
+    private array $employmentDuration;
 
     public function __construct(
         string   $name,
@@ -31,7 +29,7 @@ class StoreUserRequest
         string   $comments,
         string   $smoking,
         array    $hobbies,
-        StdClass $employmentDuration
+        array $employmentDuration
     )
     {
         $this->name = $name;
@@ -83,7 +81,7 @@ class StoreUserRequest
         return $this->comments;
     }
 
-    public function getEmploymentDuration(): stdClass
+    public function getEmploymentDuration(): array
     {
         return $this->employmentDuration;
     }

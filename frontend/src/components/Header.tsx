@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
         {isAuthenticated && <Link href="/user/table">User Table</Link>}
         {!isAuthenticated && <Link href="/user/register">Register</Link>}
         {!isAuthenticated && <Link href="/user/login">Login</Link>}
-        {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
+        {isAuthenticated && <button className='hover:text-cyan-500 font-bold mx-5' onClick={handleLogout}>Logout</button>}
       </nav>
     </header>
   );

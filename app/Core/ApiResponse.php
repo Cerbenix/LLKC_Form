@@ -15,7 +15,7 @@ class ApiResponse
 
     public function getData(): string
     {
-        return json_encode($this->data);
+        return json_encode($this->data, JSON_UNESCAPED_UNICODE);
     }
 
     private function setHttpResponseCode(int $status): void

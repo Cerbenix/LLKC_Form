@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Validation;
+namespace App\Validations;
 
 use App\Repositories\UserRepository;
 
@@ -53,7 +53,7 @@ class RegistryFormValidation
             return false;
         }
 
-        $userExists = $this->userRepository->findByEmail($email);
+        $userExists = $this->userRepository->findUserByEmail($email);
 
         if ($userExists != null) {
             return false;

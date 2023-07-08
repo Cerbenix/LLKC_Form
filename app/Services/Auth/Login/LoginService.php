@@ -16,7 +16,7 @@ class LoginService
 
     public function execute(string $email, string $password): ?User
     {
-        $user = $this->userRepository->findByEmail($email);
+        $user = $this->userRepository->findUserByEmail($email);
         if ($user && password_verify($password, $user->getPassword())) {
             return $user;
         }

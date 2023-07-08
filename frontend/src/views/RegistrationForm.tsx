@@ -96,7 +96,7 @@ const RegistrationForm: React.FC = () => {
   
     if (isValid) {
       try {
-        const response = await fetch("/api/user/store", {
+        const response = await fetch("/api/user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -116,24 +116,25 @@ const RegistrationForm: React.FC = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const fetchRegisteredEmails = async (): Promise<void> => {
-  //     try {
-  //       const response = await fetch("/api/user/index");
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         const registeredEmails: string[] = data.users.map((user: any) => user.email);
-  //         setRegisteredEmails(registeredEmails);
-  //       } else {
-  //         console.error("Error occurred while fetching registered emails");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error occurred while fetching registered emails", error);
-  //     }
-  //   };
+  const fetchRegisteredEmails = async (): Promise<void> => {
+    try {
+      const response = await fetch("/api/user");
+      if (response.ok) {
+        const data = await response.json();
+        const registeredEmails: string[] = data.users.map((user: any) => user.email);
+        setRegisteredEmails(registeredEmails);
+      } else {
+        console.error("Error occurred while fetching registered emails");
+      }
+    } catch (error) {
+      console.error("Error occurred while fetching registered emails", error);
+    }
+  };
 
-  //   fetchRegisteredEmails();
-  // }, []); 
+  useEffect(() => {
+
+    fetchRegisteredEmails();
+  }, []); 
   
 
   const validateForm = () => {
